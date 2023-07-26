@@ -17,9 +17,15 @@ label_body = {
 'addLabelIds': ['Label_3']
 }
 
+def getEmails (): #Test 4 my list of my emails CHANGE THIS
+    emails = ['jadasardin@gmail.com', 'jsardin@umich.edu']
+    return emails
+
+
 emailMsg = 'You Have a Maintenance Window Scheduled'
 mimeMessage = MIMEMultipart()
-mimeMessage['to'] = 'jadasardin@gmail.com'
+for items in getEmails():
+    mimeMessage['to'] = items
 mimeMessage['subject'] = 'Maintenance Window'
 mimeMessage.attach(MIMEText(emailMsg, 'plain'))
 raw_string = base64.urlsafe_b64encode(mimeMessage.as_bytes()).decode()
